@@ -1297,11 +1297,19 @@ return a.reduce((current, next) => {return current+next});
 }
 console.log(stuff());
 
-const b = [];
-const stuff2 = () => {
-    cars.forEach((month) => {
-        b.push(month.purchase_date);
-    })
-    return b;
-}
-console.log(stuff2());
+const purchaseDate = [];
+cars.forEach((month) => {
+    purchaseDate.push(month.purchase_date);
+})
+
+const monthOfPurchase = [];
+purchaseDate.forEach((num) => {
+    const month = num.slice(5,7);
+    monthOfPurchase.push(month)
+});
+monthOfPurchase.sort((a,b) => {return a-b})
+//make counter like the cashtocoins for months loop through monthofpurchase
+
+console.log(purchaseDate);
+console.log(monthOfPurchase);
+
